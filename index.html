@@ -227,6 +227,7 @@
     const spinButton = document.getElementById('spinButton');
     const resultBox = document.getElementById('result');
     const numbers = Array.from({ length: 22 }, (_, i) => i + 1);
+    const segmentEls = [];
 
     function createSegments() {
       const count = numbers.length;
@@ -235,9 +236,11 @@
         const segment = document.createElement('div');
         segment.className = 'segment';
         segment.textContent = num;
+        segment.dataset.number = num;
         const angle = index * angleStep + angleStep / 2;
         segment.style.transform = `rotate(${angle}deg) translateY(-220px) rotate(${-angle}deg)`;
         wheel.appendChild(segment);
+        segmentEls.push(segment);
       });
     }
 
