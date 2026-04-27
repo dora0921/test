@@ -105,6 +105,20 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     }
 
+    .pointer {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      width: 0;
+      height: 0;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-bottom: 40px solid #f44336;
+      filter: drop-shadow(0 4px 16px rgba(244, 67, 54, 0.35));
+      z-index: 12;
+    }
+
     .center {
       position: absolute;
       inset: 50%;
@@ -121,32 +135,6 @@
       letter-spacing: 0.12em;
       color: #fff;
       z-index: 10;
-    }
-
-    .center::before {
-      content: "";
-      position: absolute;
-      top: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 6px;
-      height: 80px;
-      background: #f44336;
-      border-radius: 4px;
-      box-shadow: 0 0 18px rgba(244, 67, 54, 0.4);
-    }
-
-    .center::after {
-      content: "";
-      position: absolute;
-      top: 92px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-top: 16px solid #f44336;
     }
 
     .panel h1 {
@@ -213,6 +201,7 @@
   <div class="container">
     <div class="wheel-card">
       <div class="wheel" id="wheel">
+        <div class="pointer"></div>
         <div class="center">抽籤</div>
       </div>
     </div>
