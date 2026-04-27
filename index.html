@@ -68,7 +68,7 @@
       position: absolute;
       inset: 0;
       background: conic-gradient(
-        from 90deg,
+        from 0deg,
         #1e88e5 0deg 16.36deg,
         #43a047 16.36deg 32.72deg,
         #fdd835 32.72deg 49.08deg,
@@ -226,8 +226,8 @@
         const segment = document.createElement('div');
         segment.className = 'segment';
         segment.textContent = num;
-        const angle = index * angleStep;
-        segment.style.transform = `rotate(${angle}deg) translateY(-220px) rotate(${angle * -1}deg)`;
+        const angle = index * angleStep + angleStep / 2;
+        segment.style.transform = `rotate(${angle}deg) translateY(-220px) rotate(${-angle}deg)`;
         wheel.appendChild(segment);
       });
     }
@@ -244,9 +244,9 @@
 
       const selected = pickRandomNumber();
       const segmentAngle = 360 / numbers.length;
-      const targetAngle = 360 - (selected - 1) * segmentAngle - segmentAngle / 2;
+      const targetAngle = -(selected - 1) * segmentAngle - segmentAngle / 2;
       const rotations = 8;
-      const finalRotation = rotations * 360 + targetAngle + (Math.random() * segmentAngle - segmentAngle / 2);
+      const finalRotation = rotations * 360 + targetAngle;
 
       wheel.style.transition = 'transform 5s cubic-bezier(0.33, 1, 0.68, 1)';
       wheel.style.transform = `rotate(${finalRotation}deg)`;
